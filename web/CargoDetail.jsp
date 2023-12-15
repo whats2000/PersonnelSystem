@@ -156,44 +156,47 @@
 </div>
 
 <script>
+    // Get the <span> element that closes the modal
+    const span = document.getElementsByClassName("close")[0];
+
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
-        modal.style.display = "none";
+        modalDetail.style.display = "none";
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+        if (event.target === modalDetail) {
+            modalDetail.style.display = "none";
         }
     }
 
     function backToGoodsList() {
         // 返回貨物列表的邏輯
         // 使用動畫隱藏模態框
-        modal.classList.add("modal-closing");
+        modalDetail.classList.add("modal-closing");
         setTimeout(() => {
-            modal.style.display = "none";
-            modal.classList.remove("modal-closing");
+            modalDetail.style.display = "none";
+            modalDetail.classList.remove("modal-closing");
         }, 395); // 等待動畫完成
     }
 
     span.onclick = function () {
         // 使用動畫隱藏模態框
-        modal.classList.add("modal-closing");
+        modalDetail.classList.add("modal-closing");
         setTimeout(() => {
-            modal.style.display = "none";
-            modal.classList.remove("modal-closing");
+            modalDetail.style.display = "none";
+            modalDetail.classList.remove("modal-closing");
         }, 395); // 等待動畫完成
     }
 
     window.onclick = function (event) {
-        if (event.target === modal) {
+        if (event.target === modalDetail) {
             // 使用動畫隱藏模態框
-            modal.classList.add("modal-closing");
+            modalDetail.classList.add("modal-closing");
             setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-closing");
+                modalDetail.style.display = "none";
+                modalDetail.classList.remove("modal-closing");
             }, 395); // 等待動畫完成
         }
     }

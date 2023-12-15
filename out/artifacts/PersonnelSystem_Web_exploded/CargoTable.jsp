@@ -131,13 +131,14 @@
 <!-- 引入模態框 -->
 <jsp:include page="CargoDetail.jsp"/>
 
+<!-- 引入掃描 -->
+<jsp:include page="Cameara.jsp" />
+
 <script>
     // 這裡添加JavaScript函數來處理按鈕事件
     // Get the modal
-    const modal = document.getElementById('goodsDetailModal');
-
-    // Get the <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
+    const modalDetail = document.getElementById('goodsDetailModal');
+    const modalScan = document.getElementById('scanModal');
 
     function viewGoodsDetails(cargoNumber) {
         // 在 cargoList 中找到對應的貨物
@@ -156,8 +157,8 @@
 
             // 顯示模態框
             // 顯示模態框並應用動畫
-            modal.classList.remove("modal-closing");
-            modal.style.display = "block";
+            modalDetail.classList.remove("modal-closing");
+            modalDetail.style.display = "block";
         } else {
             alert("找不到指定的貨物詳細信息。");
         }
@@ -175,7 +176,8 @@
 
     function openScan() {
         // 開啟掃描的邏輯
-        alert("開啟掃描功能尚未實現。");
+        modalScan.classList.remove("modal-closing");
+        modalScan.style.display = "block";
     }
 </script>
 
