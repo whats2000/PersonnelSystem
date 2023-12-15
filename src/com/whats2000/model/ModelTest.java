@@ -27,7 +27,7 @@ public class ModelTest {
         Cargo cargo = new Cargo("001", contentList, formatter.parse("2023-12-01"), "None", formatter.parse("2023-12-13"), address1, address2);
 
         // 創建 CargoHistory 對象
-        CargoHistory cargoHistory = new CargoHistory("Good", "2023-12-13", Timestamp.valueOf("2023-12-13 14:15:51"), cargo, personnel, address1, address2);
+        CargoHistory cargoHistory = new CargoHistory("Good", 1, Timestamp.valueOf("2023-12-13 14:15:51"), cargo, personnel, address1, address2);
 
         cargo.addCHistory(cargoHistory); // 將 CargoHistory 對象添加到 Cargo 對象中
 

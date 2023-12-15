@@ -11,14 +11,14 @@ import java.sql.Timestamp;
 public class CargoHistory {
 
 	private String currentState;
-	private String historyNumber;
+	private int historyNumber;
 	private Timestamp timeOfArrival;
 	private Cargo mCargo;
 	private Personnel mPersonnel;
 	public Address origin;
 	public Address destination;
 
-	public CargoHistory(String currentState, String historyNumber, Timestamp timeOfArrival, Cargo mCargo, Personnel mPersonnel, Address origin, Address destination) {
+	public CargoHistory(String currentState, int historyNumber, Timestamp timeOfArrival, Cargo mCargo, Personnel mPersonnel, Address origin, Address destination) {
 		this.currentState = currentState;
 		this.historyNumber = historyNumber;
 		this.timeOfArrival = timeOfArrival;
@@ -36,11 +36,11 @@ public class CargoHistory {
 		this.currentState = currentState;
 	}
 
-	public String getHistoryNumber() {
+	public int getHistoryNumber() {
 		return historyNumber;
 	}
 
-	public void setHistoryNumber(String historyNumber) {
+	public void setHistoryNumber(int historyNumber) {
 		this.historyNumber = historyNumber;
 	}
 
@@ -65,7 +65,7 @@ public class CargoHistory {
 		return true;
 	}
 
-	public boolean updateCargoHistory(String currentState, String historyNumber, Timestamp timeOfArrival) {
+	public boolean updateCargoHistory(String currentState, int historyNumber, Timestamp timeOfArrival) {
 		// 添加設定貨物歷史信息的邏輯
 		this.currentState = currentState;
 		this.historyNumber = historyNumber;

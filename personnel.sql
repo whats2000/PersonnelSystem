@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-12-14 17:49:27
+-- 產生時間： 2023-12-15 06:13:29
 -- 伺服器版本： 10.4.22-MariaDB
 -- PHP 版本： 8.1.2
 
@@ -75,13 +75,12 @@ INSERT INTO `cargo` (`cargoNumber`, `estimatedDeliveryDate`, `limit`, `origin`, 
 CREATE TABLE `cargohistory` (
   `currentState` tinytext DEFAULT NULL,
   `historyNumber` int(11) DEFAULT NULL,
-  `timeOfArrival` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
+  `timeOfArrival` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `mCargo` int(11) DEFAULT NULL,
   `mPersonnel` int(11) DEFAULT NULL,
   `origin` int(11) DEFAULT NULL,
   `destination` int(11) DEFAULT NULL,
-  `cargoHistoryID` int(11) NOT NULL,
-  `cargoID` int(11) DEFAULT NULL
+  `cargoHistoryID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -151,7 +150,6 @@ ALTER TABLE `cargohistory`
   ADD PRIMARY KEY (`cargoHistoryID`),
   ADD KEY `FK_CargoHistory_OriginAddress` (`origin`),
   ADD KEY `FK_CargoHistory_DestinationAddress` (`destination`),
-  ADD KEY `FK_CargoHistory_Cargo` (`cargoID`),
   ADD KEY `FK_mCargo` (`mCargo`),
   ADD KEY `FK_mPersonnel` (`mPersonnel`);
 
@@ -183,7 +181,6 @@ ALTER TABLE `cargo`
 -- 資料表的限制式 `cargohistory`
 --
 ALTER TABLE `cargohistory`
-  ADD CONSTRAINT `FK_CargoHistory_Cargo` FOREIGN KEY (`cargoID`) REFERENCES `cargo` (`cargoID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_CargoHistory_DestinationAddress` FOREIGN KEY (`destination`) REFERENCES `address` (`addressID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_CargoHistory_OriginAddress` FOREIGN KEY (`origin`) REFERENCES `address` (`addressID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_mCargo` FOREIGN KEY (`mCargo`) REFERENCES `cargo` (`cargoID`) ON DELETE NO ACTION ON UPDATE NO ACTION,

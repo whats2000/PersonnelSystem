@@ -109,7 +109,7 @@
         setTimeout(function () {
             scanModal.style.display = "none";
             scanModal.classList.remove("scan-modal-closing");
-        }, 400); // Duration of the closing animation
+        }, 395); // Duration of the closing animation
     }
 </script>
 
