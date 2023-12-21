@@ -132,7 +132,7 @@
 <jsp:include page="CargoDetail.jsp"/>
 
 <!-- 引入掃描 -->
-<jsp:include page="Cameara.jsp" />
+<jsp:include page="Camera.jsp" />
 
 <script>
     // 這裡添加JavaScript函數來處理按鈕事件
